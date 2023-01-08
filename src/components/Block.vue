@@ -1,15 +1,38 @@
 <template>
-  <div class="block" :class="{ active: isPlaying }">Click me!</div>
+  <div class="block" v-if="showBlock"
+    @click="stopTimer"
+    :class="{ active: showBlock }"
+  >Click me!</div>
 </template>
 
 <script>
 export default {
   // eslint-disable-next-line vue/multi-word-component-names
   name: 'Block',
-  props: {
-    delay: {
-      type: Number,
-      required: true,
+  props: ['delay'],
+  data() {
+    return {
+      showBlock: false,
+      timer: null,
+      reactionTime: 0,
+    };
+  },
+  mounted() {
+    setTimeout(() => {
+      this.showBlock = true;
+      this.startTimer();
+    }, this.delay);
+  },
+  methods: {
+    startTimer () {
+      this.timer = setInterval(() => {
+        this.reactionTime += 10;
+      }, 10);
+    },
+    stopTimer () {
+      clearInterval(this.timer);
+      this.$emit('reactionTime', this.reactionTime);
+      this.showBlock = false;
     },
   },
 };
@@ -17,8 +40,8 @@ export default {
 
 <style>
 .block {
-  width: 100px;
-  height: 100px;
+  width: 400px;
+  height: 200px;
   background-color: #ccc;
   margin: 0 auto;
   margin-top: 20px;
