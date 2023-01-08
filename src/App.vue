@@ -1,40 +1,16 @@
 <template>
-  <h1>Itachi's Reaction Timer</h1>
-  <button @click="start" :disabled="isPlaying === true">Play</button>
-  <Block v-if="isPlaying" :delay="delay" @reactionTime="endGame" />
-  <Results v-if="showResults" :score="score" />
+  <SignupForm />
 </template>
 
 <script>
-import Block from './components/Block.vue';
-import Results from './components/Results.vue';
+import SignupForm from './components/SignupForm.vue';
 
 export default {
   name: 'App',
   components: {
-    Block,
-    Results,
+    SignupForm,
   },
-  data() {
-    return {
-      isPlaying: false,
-      delay: null,
-      score: 0,
-      showResults: false,
-    };
-  },
-  methods: {
-    start() {
-      this.isPlaying = true;
-      this.delay = 2000 + Math.random() * 5000;
-      this.showResults = false;
-    },
-    endGame(reactionTime) {
-      this.isPlaying = false;
-      this.score = reactionTime;
-      this.showResults = true;
-    },
-  },
+  data() {},
 };
 </script>
 
