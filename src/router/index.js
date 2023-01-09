@@ -30,7 +30,13 @@ const routes = [
   {
     path: '/all-jobs',
     redirect: '/jobs',
-  }
+  },
+  // catchAll 404 error
+  {
+    path: '/:catchAll(.*)',
+    name: 'NotFound',
+    component: () => import('../views/NotFound.vue'),
+  },
 ];
 
 const router = createRouter({

@@ -4,6 +4,9 @@
     <router-link to="/about"> About </router-link>
     <router-link to="/jobs"> Jobs </router-link>
   </div>
+  <button>Redirect</button>
+  <button></button>
+  <button></button>
   <router-view />
 </template>
 
