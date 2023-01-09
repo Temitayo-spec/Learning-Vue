@@ -1,16 +1,31 @@
 <template>
-  <SignupForm />
+  <div id="nav">
+    <router-link to="/"> Home </router-link>
+    <router-link to="/about"> About </router-link>
+    <router-link to="/jobs"> Jobs </router-link>
+  </div>
+  <button @click="redirect">Redirect</button>
+  <button @click="back">Go back</button>
+  <button @click="forward">Go forward</button>
+  <router-view />
 </template>
 
 <script>
-import SignupForm from './components/SignupForm.vue';
-
 export default {
   name: 'App',
-  components: {
-    SignupForm,
-  },
+  components: {},
   data() {},
+  methods: {
+    redirect() {
+      this.$router.push({ path: '/' });
+    },
+    back() {
+      this.$router.go(-1);
+    },
+    forward() {
+      this.router.go(1)
+    },
+  },
 };
 </script>
 
@@ -20,29 +35,29 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+}
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
   color: #2c3e50;
-  margin-top: 60px;
+  text-decoration: none;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
+  font-weight: bold;
+  border-bottom: 1px solid #42b983;
+  padding-bottom: 10px;
 }
 
 button {
-  background: #0faf87;
-  color: #fff;
+  margin: 0 10px;
+  padding: 10px;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  font-size: 20px;
-  letter-spacing: 1px;
-  margin: 20px 0;
-}
-
-button:hover {
-  background: #0c8c6e;
-}
-
-button:disabled {
-  background: #ccc;
-  cursor: not-allowed;
+  border-radius: 4px;
 }
 </style>
