@@ -18,19 +18,19 @@ export default {
       jobs: [
         {
           id: 1,
-          name: 'John',
+          name: 'UI/UX Designer',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
         {
           id: 2,
-          name: 'Jane',
+          name: 'Web Developer',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
         {
           id: 3,
-          name: 'Tom',
+          name: 'Web Design',
           description:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
