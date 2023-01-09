@@ -3,7 +3,7 @@
   <div class="job" v-for="job in jobs" :key="job.id">
     <router-link :to="{ name: 'JobsDetail', params: { id: job.id } }">
       <h2>
-        {{ job.name }}
+        {{ job.title }}
       </h2>
     </router-link>
     <p></p>
@@ -17,6 +17,17 @@ export default {
     return {
       jobs: [],
     };
+  },
+  mounted() {
+    this.fetchJobs();
+  },
+  methods: {
+    fetchJobs() {
+      fetch('http://localhost:3000/jobs')
+        .then((response) => response.json())
+        .then((json) => (this.jobs = json))
+        .catch((error) => console.log(error.message));
+    },
   },
 };
 </script>
