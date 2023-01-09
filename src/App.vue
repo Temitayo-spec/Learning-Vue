@@ -4,9 +4,9 @@
     <router-link to="/about"> About </router-link>
     <router-link to="/jobs"> Jobs </router-link>
   </div>
-  <button>Redirect</button>
-  <button></button>
-  <button></button>
+  <button @click="redirect">Redirect</button>
+  <button @click="back">Go back</button>
+  <button @click="forward">Go forward</button>
   <router-view />
 </template>
 
@@ -15,6 +15,17 @@ export default {
   name: 'App',
   components: {},
   data() {},
+  methods: {
+    redirect() {
+      this.$router.push({ path: '/' });
+    },
+    back() {
+      this.$router.go(-1);
+    },
+    forward() {
+      this.router.go(1)
+    },
+  },
 };
 </script>
 
@@ -41,5 +52,12 @@ export default {
   font-weight: bold;
   border-bottom: 1px solid #42b983;
   padding-bottom: 10px;
+}
+
+button {
+  margin: 0 10px;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
 }
 </style>

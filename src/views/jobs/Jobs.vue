@@ -15,26 +15,7 @@ export default {
   name: 'JobPage',
   data() {
     return {
-      jobs: [
-        {
-          id: 1,
-          name: 'UI/UX Designer',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        },
-        {
-          id: 2,
-          name: 'Web Developer',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        },
-        {
-          id: 3,
-          name: 'Web Design',
-          description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        },
-      ],
+      jobs: [],
     };
   },
 };
