@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from '../views/Home.vue';
-import About from '../views/About.vue';
-import Jobs from '../views/jobs/Jobs.vue';
-import JobsDetail from '../views/jobs/JobsDetail.vue';
+import Details from '../views/Details.vue';
 
 const routes = [
   {
@@ -11,25 +9,10 @@ const routes = [
     component: Home,
   },
   {
-    path: '/about',
-    name: 'About',
-    component: About,
-  },
-  {
-    path: '/jobs',
-    name: 'Jobs',
-    component: Jobs,
-  },
-  {
-    path: '/jobs/:id',
-    name: 'JobsDetail',
-    component: JobsDetail,
+    path: '/posts/:id',
+    name: 'Details',
+    component: Details,
     props: true,
-  },
-  // redirection
-  {
-    path: '/all-jobs',
-    redirect: '/jobs',
   },
   // catchAll 404 error
   {

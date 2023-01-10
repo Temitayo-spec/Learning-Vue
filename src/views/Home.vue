@@ -1,19 +1,29 @@
 <template>
   <h1>Home page</h1>
-  <p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, quis
-    aspernatur voluptates totam quibusdam, dicta consequuntur quas debitis iste
-    iure repudiandae doloremque neque dolorem! Inventore beatae error odio
-    facilis ipsum.
-  </p>
+  <div v-if="error">
+    {{ error }}
+  </div>
+  <div v-if="posts.length">
+    <PostList :posts="posts" />
+  </div>
+  <div v-else>Loading...</div>
 </template>
 
 <script>
+import PostList from '../components/PostList.vue';
+import { getPosts } from '../composables/getPosts';
 export default {
   name: 'HomePage',
   components: {
-    
-  }
+    PostList,
+  },
+  setup() {
+    const { posts, error, load } = getPosts();
+
+    load();
+
+    return { posts, error };
+  },
 };
 </script>
 
